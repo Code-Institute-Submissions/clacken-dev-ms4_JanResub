@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'home',
     'products',
     'checkout',
+    'cart',
+
+    # Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +65,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'graphic_content.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,10 +78,15 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', #do not remove as required by all-auth
+                'django.template.context_processors.request', # keep this, required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

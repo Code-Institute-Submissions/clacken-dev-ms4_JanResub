@@ -1,5 +1,4 @@
 
-   
 from django import forms
 from .models import Order
 
@@ -7,7 +6,7 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('user', 'email', 'service',
+        fields = ('user', 'service',
                   'description',)
 
     def __init__(self, *args, **kwargs):
@@ -18,12 +17,12 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'user': 'Full Name',
-            'email': 'Email Address',
+            #'email': 'Email Address',
             'service': 'Service Type',
             'description': 'Description',
         }
 
-for field in self.fields:
+        for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:

@@ -9,7 +9,7 @@ from products.models import Product
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=254, null=False, blank=False)
+    #user.email = models.EmailField(max_length=254, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     service = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
