@@ -15,7 +15,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container">
+<div class="container" id="page-body">
     <div class="row">
         <div class="col">
             <hr>
@@ -25,11 +25,15 @@
     </div>
 
     <div class="col-12 col-lg-6">
+
+        
+
         <p>Please fill out the form below to complete your order</p>
-        <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+        <form action="{% url 'submit_order' %}" method="POST" id="payment-form">
             {% csrf_token %}
             <fieldset class="rounded px-3 mb-5">
                 <legend class="fieldset-labelpx-2 w-auto">Details</legend>
+                <h4> {{ product.service_type }}</h4>
                
             </fieldset>
             <fieldset class="rounded px-3 mb-5">
@@ -77,10 +81,11 @@
                     <span class="icon">
                         <i class="fas fa-exclamation-circle"></i>
                     </span>
-                    <span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>
+                    <span>Your card will be charged <strong>${{ product.price }}</strong></span>
                 </p>
             </div>
         </form>
+        <a class="btn btn-primary" href="{% url 'submit_order' %}" role="button">Submit</a>
     </div>
     </div>
 

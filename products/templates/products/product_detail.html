@@ -21,7 +21,7 @@
                         <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                         <hr>
                         <p>{{ product.description }}</p>
-                        <a class="btn btn-primary" href="{% url 'order' product.id %}" role="button">Order Now</a>
+                        <a class="btn btn-primary" href="{% url 'checkout' product.id %}" role="button">Order Now</a>
 
                     </div>
                 </div>
