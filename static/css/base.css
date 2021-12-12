@@ -21,6 +21,10 @@ body {
 	z-index: -1;
 }
 
+#header-container{
+    margin-bottom: 10rem;
+}
+
 #page-body{
     margin-top:10rem;
 }
@@ -30,6 +34,11 @@ body {
     margin-left: 10rem;
     background-color: red;
     color: white;
+}
+
+#card-element{
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .logo-font {
@@ -60,4 +69,34 @@ body {
 
 .bg-black {
     background: #000 !important;
+}
+
+
+
+
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
 }
