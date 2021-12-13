@@ -1,28 +1,62 @@
-
 {% extends "base.html" %}
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
-                <hr>
-            </div>
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">My Profile</h2>
+            <hr>
         </div>
-        {{ profile }}
-{% endblock %}
+    </div>
+    <div>
+        <p>Orders for profile: {{ profile }}</p>
+
+    </div>
+
+
+    {% for order in orders %}
+    {% if order.image%}
+    <div class="card">
+        <h2>Fulfilled Orders</h2>
+        <span>
+            <a href="#" title="{{ order.order_number }}">
+                {{ order.order_number }}
+                <span>
+                    <img class="card-img-top img-fluid" src="{{ order.image.url }}" alt="{{ order.service }}">
+                </span>
+            </a>
+        </span>
+        <span>{{ order.date }}</span>
+        <span>${{ order.total }}</span>
+        <span>Service ordered: {{ order.service }}</span>
+    </div>
+    {% else %}
+    <div class="card">
+        <h2>Non-fulfilled Orders</h2>
+        <span>
+            <a href="#" title="{{ order.order_number }}">
+                {{ order.order_number }}
+            </a>
+        </span>
+        <span>{{ order.date }}</span>
+        <span>${{ order.total }}</span>
+        <span>Service ordered: {{ order.service }}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
