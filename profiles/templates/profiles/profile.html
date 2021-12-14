@@ -28,11 +28,12 @@
 
     </div>
 
-
+    <h2>Fulfilled Orders</h2>
     {% for order in orders %}
     {% if order.image%}
+    
     <div class="card">
-        <h2>Fulfilled Orders</h2>
+        
         <span>
             <a href="#" title="{{ order.order_number }}">
                 {{ order.order_number }}

@@ -4,11 +4,24 @@ html {
     height: 100%;
 }
 
+/*
 body {
 	background: url('/media/background_image.jpg') no-repeat center center fixed;
 	background-size: cover;
     height: calc(100vh - 164px);
     
+}
+*/
+
+#main-image{
+    background: url('/media/background_image.jpg') no-repeat center center fixed;
+	background-size: cover;
+    height: calc(100vh - 164px);
+        width: 100%;
+        
+        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+        clip-path: polygon(0 0, 0 100%, 100% 55%, 100% 100%, 100% 0);
+        
 }
 
 .overlay {
