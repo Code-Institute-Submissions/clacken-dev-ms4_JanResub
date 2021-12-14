@@ -120,11 +120,15 @@ WSGI_APPLICATION = 'graphic_content.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#   }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://gthwkqafyrbgey:249db310a477701fc36c0dec0c7fc6aa64b496e285994329726b87b7d67d7393@ec2-52-19-164-214.eu-west-1.compute.amazonaws.com:5432/d5999ub1jr559m')
 }
 
 
