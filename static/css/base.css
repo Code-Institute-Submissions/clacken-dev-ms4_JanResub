@@ -92,6 +92,11 @@ body {
     background: #000 !important;
 }
 
+/* Orders Page ----------------------- */
+
+.order-card{
+    margin: 2em;
+}
 
 
 
