@@ -14,7 +14,7 @@ body {
 */
 
 #main-image{
-    background: url('/media/background_image.jpg') no-repeat center center fixed;
+    background: url('/media/background-image.jpg') no-repeat center center fixed;
 	background-size: cover;
     height: calc(100vh - 164px);
         width: 100%;
@@ -92,6 +92,11 @@ body {
     background: #000 !important;
 }
 
+/* Orders Page ----------------------- */
+
+.order-card{
+    margin: 2em;
+}
 
 
 
