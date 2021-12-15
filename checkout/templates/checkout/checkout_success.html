@@ -23,7 +23,7 @@
                 <p class="text-black">Your order number is {{ order.order_number }}. A confirmation email will be sent to <strong>{{ order.user_profile.user.email }}</strong>.</p>
                 <hr>
                 <p class="text-black">You can now view this order in your profile page.</p>
-                <a class="btn btn-primary" href="btn-outline-secondary" role="button">Link</a>
+                <a class="btn btn-outline-secondary" href="{% url 'profile' %}" role="button">Profile</a>
             </div>
         </div>
     </div>
