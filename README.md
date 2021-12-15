@@ -80,7 +80,7 @@ Add mockup image here
 - Straightforward checkout, one click pay
 
 ### DB Schemas
-Image of Schema (link)
+![Image of Schema](https://github.com/clacken-dev/ms4/blob/main/documentation/db_schema.png?raw=true)
 
 ## Architecture
 
@@ -88,11 +88,11 @@ Image of Schema (link)
 - graphic_design
   - core templates and static folders are located here
 ### Apps
-- home
-- profiles
-- checkout
-- products
-- orders
+- home - this renders the home view and contains some graphics for around the site
+- profiles - This saves users to a profile model and loads a profile page to view information and orders
+- checkout - this handles orders and payments and redirects as necessary
+- products - this contains the product models and pages for viewing, selecting and proceeding with an order
+- orders - this is for the admin side of order editing and fulfilment
 ### Models
 - UserProfile
   - username
@@ -117,6 +117,7 @@ Image of Schema (link)
   - user (ForeignKey)
   - testimony
 
+## Wireframes 
 # Technologies Used
 
 # Features
