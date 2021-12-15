@@ -118,14 +118,113 @@ Add mockup image here
   - testimony
 
 ## Wireframes 
+
 # Technologies Used
 
-# Features
+## Languages Used
+ - HTML5
+ - CSS3
+ - Javascript
+ - Python
 
-# Testing (Link to Testing.md, view yoga app table of tests)
+## Frameworks, Libraries and Programs
+- Bootstrap
+- Django
+- Google Fonts
+- Photoshop
+- Balsamiq Wireframes
+- Font Awesome
+- JQuery
+- Git
+- GitHub
+- AWS S3
+
+# Features
+ - The site features a responsive minimalist design with intuitive feedback
+# Testing
+
+## Validation
+- Site was validated with W3C Markup Validator and with W3C CSS Validator to ensure site complied with best practice and layout of both languages
+[Link to Markup Results]()
+[Link to CSS Results]()
+- Python Linter was used to identify and rectify pep8 compliance issues in environment wherever possible
+
+## Testing User Stories
+| Scenario  	| Expectation  	|  Results 	|
+|---	|---	|---	|
+|   Home Page links verification	| Check all links work, are clearly labelled and bring to correct page  	|   PASS	|
+|   Logo	|  Logo is displayed everywhere clearly and works as Home nav 	|   PASS	|
+|   Products	|   Clear to see what products are availble, easy to see what the options and prices are if following the details link. Get a good idea of the products offered and what they entail	|   PASS	|
+|  Gallery 	|   Easy to view gallery and view previous work to get an idea of the work offered by this company.	|  PASS 	|
+|  Account creation 	| Possible to create an account, login and logout work and new navbar items are displayed after user authenticated  	|   PASS	|
+|   Create Order	|  Verify that filling in the details on the checkout page will take payment and give confirmation of an order being confirmed with order number generated. Confirmation success page loading and displaying all relevant info 	| PASS  	|
+|  View Profile 	|   Verify that navigating to profile after creating an order displays that order in the page with all order information. Also lets me know that the order is unfulfilled as there is no graphic uploaded yet	|   PASS	|
+|   View fulfilled order	|  Navigating to the profile page if an order is fulfilled displays the graphic in the order information and separates the fulfilled and unfulfilled orders if a customer has multiple orders 	|   PASS	|
+|   Admin Orders	|   As the site admin I clearly get the Orders link on the navbar and can navigate to the page showing all orders submitted on the site. The option to update unfulfilled orders is there. 	|   PASS	|
+|   Fulfill Order	|   As the admin I can click the update order button on an unfulfilled order and will be brought the the upload form where I can complete a user's order by adding the graphic they requested	|  PASS 	|
+|   Admin Functions	|  Admin functions for products, users, testimonies and images are accessed through the admin page. Logging into the admin page I see that the necessary fields and models have all been registered and can be used as desired 	|   PASS	|
+|   Logout	|   As a user wishing to logout I can easily logout using the account link on the navbar which will check to confirm first. I can then logout and am redirected as necessary	|  PASS 	|
+|   Checkout - Ease of Use	|   The checkout is layed out clearly with fields for input marked. The price is displayed and the card information is clearly visible and provides feedback if there are errors in input. Clicking the submit lets the user know that the button is disabled and when payment complete the page refreshes.	|   PASS	|
+|   Overall Experience	| The navigation experience is smooth overall. Pages are clearly laid out with lots of breathing space, sections are labelled and buttons and links all work. There is always the navbar to navigate back to a different location and pages are linked in an intuitive manner to aid site flow. The products view flows naturally into creating an order and paying. The order confirmation flows nicely to the profile page where users get accustomed to how the site flow will be on their next visit when checking for their finished image. Interaction is nice and responsive and site behaves as expected.  	|  PASS 	|
 
 # Bugs
-
+ - Some whitespace on mobile view of home page
+ - Messages not displaying until navigating to admin panel
 # Deployment
+Repository set up
+
+Ensure your requirements.txt is up to date.
+
+pip3 freeze --local > requirements.txt - Ensure you have a Procfile in the repository.
+web: gunicorn bookaband.wsgi:application
+Create a new app on Heroku
+
+Navigate to Heroku.
+Once logged in/signed up for an account, select 'New' and 'Create New App'.
+Create an app name and select a region.
+Link up GitHub Repository
+
+Select the 'Connect to GitHub' tab.
+Type in repository name and select 'search'.
+Once the repository is found, press 'connect'.
+Heroku Set up
+
+Navigate to the resources tab at the top of the page.
+Search for 'Heroku Postgres' and select. Confirm which package you would like to use and 'submit order form'.
+Environment Variables can be set in the app settings.
+The following variables will need to be set:
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+DATABASE_URL
+EMAIL_HOST_PASS
+EMAIL_HOST_USER
+SECRET_KEY
+USE_AWS
+Under the 'Deploy' tab, enable automatic deploys.
+
+Deploying locally
+To run the project on your local IDE Download Repository
+
+Download the repository and navigate to the 'code' dropdown.
+Add the HTTPS url to your clipboard.
+Open your environemt and use git clone followed by the repository url.
+Install the requirements file with pip3 install -r requirements.txt
+Set variables in an env file or in your environment variables settings.
+Add 'developement' to the list of environement variables to ensure debug is set to True.
+Ensure USE_AWS is set to False
+EMAIL_* variables are not required as emails will be posted to the terminal while in development mode.
+
 
 # Credits
+### Code
+- Site design is based off Code Institute's Boutique Ado and borrows features and functionality from it. Most elements are adapted as needed and all are attributed in the code. 
+
+### Images
+- Images used from Unsplash and Pexels
+
+## Acknowledgments
+- This project was inspired by Code Institute's Boutique Ado project.
+
+ - Many thanks go to my mentor for his continued support throughout the project.
+
+- Thanks  to the Code Institute tutor team for their guidance and help.
