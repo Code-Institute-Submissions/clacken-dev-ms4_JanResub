@@ -17,6 +17,7 @@ Add mockup image here
     - List of User Stories Here
     - Another User Story
     - Another User Story
+  - Story Fulfillment
 - ## Design
   - Colours
   - Wireframes
@@ -44,6 +45,20 @@ Add mockup image here
   - Code
   - Images
   - Acknowledgements
+
+
+# Project Goals
+- The purpuse of this website is to attract individuals looking for graphic design services. They can view the available design options on the website, submit a request and then receive their artwork in their user profile when it's ready.
+
+## Dev & Business Goals
+- Graphic Content has the intention of selling graphics to users based on their selected purchase option
+- User will submit a design request with a description, pay for the design, and view their submitted order in their profile
+- Users can check back to their profile where their finished graphics will be displayed
+- Admins are able to view and update orders, adding finished graphics to orders which are currently unfulfilled
+- Admins can update and delete products, users, graphics, testimonials
+
+# UX Design
+## User Stories
 
 
 
