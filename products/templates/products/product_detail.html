@@ -10,11 +10,9 @@
 {% endblock %}
 
 {% block content %}
-
         <div class="overlay" ></div>
         <div class="container-fluid"  id="product-details">
             <div class="row page-body">
-
                 <div class="col-12">
                     <div class="product-details-container mb-5">
                         <p class="mb-0 ml-5">{{ product.service_type }}</p>
@@ -22,7 +20,6 @@
                         <hr>
                         <p class="ml-5">{{ product.description }}</p>
                         <a class="btn btn-light ml-5" href="{% url 'checkout' product.id %}" role="button">Order Now</a>
-
                     </div>
                 </div>
             </div>

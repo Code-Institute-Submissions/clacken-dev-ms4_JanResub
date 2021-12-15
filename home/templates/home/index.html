@@ -19,29 +19,44 @@
 {% endblock %}
 
 {% block content %}
-<div class="row text-center">
-  <div class="col">
-    We design everything from website graphics to logos and coffee cups!
-  
-  <span>
-    With over 75 years in the industry, we are one of the leading graphic design companies in the world.
-    We create custom designs based on your specifications and can also provide a world-class design
-    call with you to plan your graphics. We use the latest cutting edge technology and software to create
-    art pieces which are out of this world. Whether you're looking for a small, elegant logo or a bold and 
-    eye-catching web banner, we've got you covered. You'll find our design options available to view on our products page
-    where you can submit your design request.
-  </span>
-  <div class="my-5">
-    <h4>
-      <a class="btn btn-outline-secondary" href="{% url 'products' %}" role="button">View Products</a>
-    </h4>
-</div>
-</div>
-</div>
-<hr>
-<div class="row">
-  <div class="col">
-
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      We design everything from website graphics to logos and coffee cups!
+      <span>
+        With over 75 years in the industry, we are one of the leading graphic design companies in the world.
+        We create custom designs based on your specifications and can also provide a world-class design
+        call with you to plan your graphics. We use the latest cutting edge technology and software to create
+        art pieces which are out of this world. Whether you're looking for a small, elegant logo or a bold and
+        eye-catching web banner, we've got you covered. You'll find our design options available to view on our products
+        page
+        where you can submit your design request.
+      </span>
+      <div class="my-5">
+        <h4>
+          <a class="btn btn-outline-secondary" href="{% url 'products' %}" role="button">View Products</a>
+        </h4>
+      </div>
+    </div>
   </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      Superb work with a gallery showcasing our quality.
+      <span>
+        Here at graphic content we believe that the best way to show people is by showing them our award winning designs.
+        Our gallery page features some of the best graphics ever created on this world and we want to share them with you.
+
+      </span>
+      <div class="my-5">
+        <h4>
+          <a class="btn btn-outline-secondary" href="{% url 'gallery' %}" role="button">View Gallery</a>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <hr>
 </div>
 {% endblock %}

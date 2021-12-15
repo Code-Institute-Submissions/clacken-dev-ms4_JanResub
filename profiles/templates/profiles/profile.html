@@ -27,13 +27,10 @@
         <p>Orders for profile: {{ profile }}</p>
 
     </div>
-
     <h2>Fulfilled Orders</h2>
     {% for order in orders %}
     {% if order.image %}
-    
     <div class="card mt-3 mb-3">
-        
         <span>
             <a href="#" title="{{ order.order_number }}">
                 {{ order.order_number }}

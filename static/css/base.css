@@ -43,8 +43,6 @@ body {
     overflow: hidden;
 }
 
-
-
 .overlay {
 	height: 100%;
 	width: 100%;
@@ -80,7 +78,7 @@ body {
 }
 
 .navbar-nav{
-    margin-left: 22rem;
+    margin-left: 25em;
 }
 
 .nav-item{
