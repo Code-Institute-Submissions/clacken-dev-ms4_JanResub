@@ -59,6 +59,72 @@ Add mockup image here
 
 # UX Design
 ## User Stories
+- As a new user I want to understand the purpose of the site, navigate easily and select the suitable product I'm looking for
+- As a user I want to select a product and view the price, as well as submit my design and checkout
+- As a user I want to view my profile with orders attached
+- As a user I want to view a selection of work by the company
+- As a user I want to be able to sign up/login and logout
 
+- As an admin I want to update products or orders
+- As an admin I want to update users
+- As an admin I want to fulfill the orders easily by uploading graphics
 
+# Design
 
+### Overall Design Idea
+- Simple, minimalist design
+- Clear to see what functions do and how to navigate
+- A nice logo which gives the graphic design theme
+- Simple colours, lots of use of white space
+- Abstract or artistic images to give design impressions
+- Straightforward checkout, one click pay
+
+### DB Schemas
+Image of Schema (link)
+
+## Architecture
+
+### Main project Directory
+- graphic_design
+  - core templates and static folders are located here
+### Apps
+- home
+- profiles
+- checkout
+- products
+- orders
+### Models
+- UserProfile
+  - username
+  - password
+  - email
+- Product
+  - service_type
+  - description
+  - price
+- Order
+  - user (ForeignKey)
+  - service (ForeignKey)
+  - total
+  - description
+  - date
+  - order_number
+  - image
+- Image
+  - image
+  - image_url
+- Testimony
+  - user (ForeignKey)
+  - testimony
+
+# Technologies Used
+
+# Features
+
+# Testing (Link to Testing.md, view yoga app table of tests)
+
+# Bugs
+
+# Deployment
+
+# Credits
