@@ -6,6 +6,8 @@ from checkout.models import Order
 from .forms import OrderForm
 
 # Create your views here.
+
+
 @login_required
 def orders(request):
     """ A view to return the orders page """

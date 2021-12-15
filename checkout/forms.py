@@ -15,9 +15,6 @@ class OrderForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'user': 'Full Name',
-            #'email': 'Email Address',
-            'service': 'Service Type',
             'description': 'Description',
         }
 

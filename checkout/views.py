@@ -10,12 +10,12 @@ import stripe
 
 @login_required
 def checkout(request, product_id):
+    """ A view to show the checkout page for an item and handle payments """ 
     product = get_object_or_404(Product, pk=product_id)
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     
-
     if request.method == 'POST':
         print("post request method executed")
         print(stripe_public_key)
@@ -49,8 +49,6 @@ def checkout(request, product_id):
         )
         order_form = OrderForm()
     
-        
-
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
@@ -65,18 +63,6 @@ def checkout(request, product_id):
 
     return render(request, template, context)
 
-@login_required
-def order_now(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-
-    order_form = OrderForm()
-    
-    template = 'checkout/checkout.html'
-    context = {
-        'order_form': order_form,
-        'product': product,
-    }
-    return render(request, template, context)
 
 @login_required
 def checkout_success(request, order_number):

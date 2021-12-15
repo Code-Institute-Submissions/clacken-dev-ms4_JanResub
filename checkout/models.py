@@ -10,10 +10,13 @@ from profiles.models import UserProfile
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+                                     null=True, blank=True,
+                                     related_name='profile')
     date = models.DateTimeField(auto_now_add=True)
-    service = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    service = models.ForeignKey(Product, null=False, blank=False,
+                                on_delete=models.CASCADE)
+    total = models.DecimalField(max_digits=10, decimal_places=2, null=False,
+                                default=0)
     description = models.TextField(null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
 
