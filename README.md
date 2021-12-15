@@ -118,6 +118,12 @@ Add mockup image here
   - testimony
 
 ## Wireframes 
+![Wireframe1](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe1.png?raw=true)
+![Wireframe2](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe2.png?raw=true)
+![Wireframe3](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe3.png?raw=true)
+![Wireframe4](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe4.png?raw=true)
+![Wireframe5](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe5.png?raw=true)
+
 
 # Technologies Used
 
