@@ -13,16 +13,37 @@ body {
 }
 */
 
-#main-image{
+#index-image{
     background: url('/media/background-image.jpg') no-repeat center center fixed;
 	background-size: cover;
-    height: calc(100vh - 164px);
-        width: 100%;
-        
-        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
-        clip-path: polygon(0 0, 0 100%, 100% 55%, 100% 100%, 100% 0);
-        
+    height: calc(80vh - 100px);
+    width: 100%;
+    top: 120px;     
 }
+.page-background{
+    background: url('/media/page-background.jpg') no-repeat center center fixed;
+	background-size: cover;
+    height: 100rem;;
+	width: 100%;
+	top: 120px;
+	left: 0;
+	position: fixed;
+	z-index: -1;    
+}
+
+#page-background-overlay{
+    background: rgba(0, 0, 0, 0.65);
+    height:100%;
+    width: 100%;
+}
+
+.cutaway{
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+        clip-path: polygon(0 0, 0 100%, 100% 55%, 100% 100%, 100% 0);
+    overflow: hidden;
+}
+
+
 
 .overlay {
 	height: 100%;
@@ -49,8 +70,18 @@ body {
     margin-left: 10rem;
 }
 
-#page-body{
+.navbar-toggler-icon{
+    color: white !important;
+    z-index: 10;
+}
+
+.navbar{
+    float: right;
+}
+
+.page-body{
     margin-top:10rem;
+    z-index: -2;
 }
 
 #product-details{
@@ -92,6 +123,7 @@ body {
     background: #000 !important;
 }
 
+
 /* Orders Page ----------------------- */
 
 .order-card{
@@ -110,19 +142,13 @@ body {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
-    }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
+ /* to make the navbar open full screen on mobile */
+ @media (max-width: 768px) {
+    #navbar-content {
+      height: 100vh;
+   }
+ }
 
-    body {
-        height: calc(100vh - 116px);
-    }
-}
+ 

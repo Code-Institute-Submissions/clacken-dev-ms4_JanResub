@@ -2,25 +2,42 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-contianer">
-        <div class="row">
-            <div class="col">Orders Page</div>
-        </div>
-    </div>
+
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100 mx-auto">
-        <div class="row h-100 mx-auto">
-            {% for order in orders %}
-            <div class="card order-card mx-auto">
-                <span>Order Number: {{ order.order_number }}</span>
-                <span>Order Type: {{ order.service}}</span>
-                <span>Order Owner: {{ order.user_profile.user.email }}</span>
-                <span>Order Description: {{ order.description}}</span>
-            </div>
-            {% endfor %}  
+<div class="container h-100 mx-auto page-body">
+    <div class="row h-100 mx-auto">
+        <div class="col-6">
+        <h4>Fulfilled Orders</h4>
+        {% for order in orders %}
+        
+        {% if order.image %}
+        
+        <div class="card order-card mx-auto">
+            <span>Order Number: {{ order.order_number }}</span>
+            <span>Order Type: {{ order.service}}</span>
+            <span>Order Owner: {{ order.user_profile.user.email }}</span>
+            <span>Order Description: {{ order.description}}</span>
         </div>
     </div>
+        {% else %}
+        <div class="col-6">
+        <h4>Unfulfilled Orders</h4>
+        
+        
+        <div class="card order-card mx-auto">
+            <span>Order Number: {{ order.order_number }}</span>
+            <span>Order Type: {{ order.service}}</span>
+            <span>Order Owner: {{ order.user_profile.user.email }}</span>
+            <span>Order Description: {{ order.description}}</span>
+            <a class="btn btn-primary" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
+        </div>
+    </div>
+</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
 
 {% endblock %}
