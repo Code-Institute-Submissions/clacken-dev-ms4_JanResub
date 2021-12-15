@@ -32,7 +32,7 @@
             <span>Order Owner: {{ order.user_profile.user.email }}</span>
             <span>Order Description: {{ order.description}}</span>
             <span class="mt-2 mb-2"></span>
-            <a class="btn btn-outline-warning" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
+            <a class="btn btn-outline-success" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
             <span class="mt-2 mb-2"></span>
         </div>
     </div>

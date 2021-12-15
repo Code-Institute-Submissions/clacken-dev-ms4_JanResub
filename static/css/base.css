@@ -122,7 +122,10 @@ body {
     text-transform: uppercase;
 }
 
-
+.allauth-form-inner-content{
+    margin-top: 10rem;
+    padding-top: 100px;
+}
 
 .main-logo-link {
     width: fit-content;
@@ -147,7 +150,7 @@ body {
 
 #description-field{
     width: 90%;
-    
+
 }
 
 

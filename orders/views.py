@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from profiles.models import UserProfile
 from checkout.models import Order
 from .forms import OrderForm
 
 # Create your views here.
+@login_required
 def orders(request):
     """ A view to return the orders page """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -18,7 +20,7 @@ def orders(request):
     
     return render(request, template, context)
 
-
+@login_required
 def update_order(request, order_number):
     """ A view to add the finished graphics to an order """
 
@@ -34,8 +36,9 @@ def update_order(request, order_number):
 
     return render(request, template, context)
 
+@login_required
 def edit_order(request, order_number):
-    """ Edit a product in the store """
+    """ Edit a graphic by adding image and updating the instance """
     order = get_object_or_404(Order, order_number=order_number)
     if request.method == 'POST':
         form = OrderForm(request.POST, request.FILES, instance=order)
