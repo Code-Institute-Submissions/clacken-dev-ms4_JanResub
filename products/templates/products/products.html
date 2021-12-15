@@ -76,10 +76,15 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col">
             <div class="card text-center">
                 <h4 class="mt-5 mb-5">Hear what past customers had to say about our services</h4>
+                {% for testimony in testimonies%}
+                <div class="card mx-auto mt-3 mb-3 text-center">
+                   " {{ testimony.testimony }} - {{testimony.user}} "
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
