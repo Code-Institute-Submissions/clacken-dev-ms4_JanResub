@@ -2,29 +2,46 @@
 {% load static %}
 
 {% block page_header %}
-
-<div id="index-image" class="cutaway"></div>
-<div class="container-fluid header-container">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h4 class="logo-font text-black">
-                Custom Designed Graphics to Suit Every Need
-            </h4>
-        </div>
+<div class="row">
+  <div class="col">
+    <div id="index-image" class="cutaway">
+      <h4>Hero Text</h4>
     </div>
+    <div class="container-fluid header-container">
+      <div class="col">
+        <h4 class="logo-font text-black text-center">
+          Custom Designed Graphics to Suit Every Need
+        </h4>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- Experimental nav from stack overflow-->
+<div class="row text-center">
+  <div class="col">
+    We design everything from website graphics to logos and coffee cups!
+  
+  <span>
+    With over 75 years in the industry, we are one of the leading graphic design companies in the world.
+    We create custom designs based on your specifications and can also provide a world-class design
+    call with you to plan your graphics. We use the latest cutting edge technology and software to create
+    art pieces which are out of this world. Whether you're looking for a small, elegant logo or a bold and 
+    eye-catching web banner, we've got you covered. You'll find our design options available to view on our products page
+    where you can submit your design request.
+  </span>
+  <div class="my-5">
+    <h4>
+      <a class="btn btn-outline-secondary" href="{% url 'products' %}" role="button">View Products</a>
+    </h4>
+</div>
+</div>
+</div>
+<hr>
+<div class="row">
+  <div class="col">
 
-    
-<div class="row justify-content-around">
-    <div class="col-4">
-      Your Graphics, Your Way
-    </div>
-    <div class="col-4">
-      We design everything from website graphics to logos and coffee cups!
-    </div>
   </div>
+</div>
 {% endblock %}

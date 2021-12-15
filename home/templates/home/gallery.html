@@ -12,43 +12,30 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div class="page-background">
-    <div id="page-background-overlay"></div>
-</div>
+    <div class="page-background">
+        <div id="page-background-overlay"></div>
+    </div>
 
 <div class="container page-body">
-    <div class="row h-100">
+    <div class="row ">
         <div class="col text-center mt-3">
-            <h2 class="text-white text-center text-uppercase">Products</h2>
-            <h4 class="text-white mt-3 mb-3">We have products to suit all needs. View each product for a description of
-                the service involved
-                and the estimated lead time on work. From there ordering is just a click away!
-            </h4>
-            <hr class="w-50 mb-1">
+            <h2 class="text-white">Gallery</h2>
+            <h4 class="text-white">A curated selection of award winning graphics we created for past customers</h4>
+            <hr class="w-50 mb-2">
         </div>
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2"></div>
             <div class="row">
-                {% for product in products %}
+                {% for image in images %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.service_type }}</p>
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mt-2 text-left font-weight-bold">€{{ product.price }}</p>
-                                </div>
-                            </div>
-                            <div class="row mx-auto mb-3 mt-3">
-                                <div class="col mx-auto">
-                                    <a class="btn btn-outline-secondary" href="{% url 'product_detail' product.id %}"
-                                        role="button">View Details</a>
-                                </div>
-                            </div>
+                            <span>
+                                <img class="card-img-top img-fluid" src="{{ image.image.url }}" alt="{{ image.image }}">
+                            </span>
+                            <span class="mt-1 mb-1 text-center">Graphic Content</span>
                         </div>
                     </div>
                 </div>
@@ -73,13 +60,6 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card text-center">
-                <h4 class="mt-5 mb-5">Hear what past customers had to say about our services</h4>
             </div>
         </div>
     </div>

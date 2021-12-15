@@ -1,6 +1,6 @@
-# Milestone Project 4
+# Graphic Content
 
-## Graphic Content
+## Code Institute Milestone Project 4
 [View the Live Project Here](https://clacken-ms4.herokuapp.com/)
 
 Add mockup image here

@@ -5,5 +5,5 @@ class Image(models.Model):
     """
     An image model for gallery display
     """
-    gallery_image = models.TextField(null=False, blank=False)
+    image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

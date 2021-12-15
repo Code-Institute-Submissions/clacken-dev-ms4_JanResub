@@ -12,20 +12,25 @@
 {% block content %}
 
         <div class="overlay" ></div>
-        <div class="container-fluid">
-            <div class="row page-body" id="product-details">
+        <div class="container-fluid"  id="product-details">
+            <div class="row page-body">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="product-details-container mb-5 mt-md-5">
-                        <p class="mb-0">{{ product.service_type }}</p>
-                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                <div class="col-12">
+                    <div class="product-details-container mb-5">
+                        <p class="mb-0 ml-5">{{ product.service_type }}</p>
+                        <p class="lead mb-0 ml-5 text-left font-weight-bold">€{{ product.price }}</p>
                         <hr>
-                        <p>{{ product.description }}</p>
-                        <a class="btn btn-primary" href="{% url 'checkout' product.id %}" role="button">Order Now</a>
+                        <p class="ml-5">{{ product.description }}</p>
+                        <a class="btn btn-light ml-5" href="{% url 'checkout' product.id %}" role="button">Order Now</a>
 
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
+            <div class="card" id="product-card">
+            <h4>Our service turn around time is usually no more than 4 days and you will find your finished graphic in your profile on this site.</h4>
+        </div>
         </div>
     
 {% endblock %}

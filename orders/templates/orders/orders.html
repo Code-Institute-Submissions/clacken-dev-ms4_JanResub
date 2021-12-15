@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container h-100 mx-auto page-body">
     <div class="row h-100 mx-auto">
-        <div class="col-6">
+        <div class="col">
         <h4>Fulfilled Orders</h4>
         {% for order in orders %}
         
@@ -22,16 +22,18 @@
         </div>
     </div>
         {% else %}
-        <div class="col-6">
+        <div class="col">
         <h4>Unfulfilled Orders</h4>
         
         
-        <div class="card order-card mx-auto">
+        <div class="card order-card mx-auto mt-5 mb-5">
             <span>Order Number: {{ order.order_number }}</span>
             <span>Order Type: {{ order.service}}</span>
             <span>Order Owner: {{ order.user_profile.user.email }}</span>
             <span>Order Description: {{ order.description}}</span>
-            <a class="btn btn-primary" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
+            <span class="mt-2 mb-2"></span>
+            <a class="btn btn-outline-warning" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
+            <span class="mt-2 mb-2"></span>
         </div>
     </div>
 </div>

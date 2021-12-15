@@ -12,9 +12,4 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.testimony
 
-class Image(models.Model):
-    """
-    An image model for gallery display
-    """
-    gallery_image = models.TextField(null=False, blank=False)
 
