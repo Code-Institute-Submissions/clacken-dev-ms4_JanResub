@@ -22,7 +22,7 @@ margin: 0;
 }
 
 #index-image{
-    background: url('/media/background-image.jpg') no-repeat center center fixed;
+    background-color:#054A59;
 	background-size: cover;
     height: calc(80vh - 100px);
     width: 100%;
@@ -96,7 +96,8 @@ margin: 0;
 }
 
 .navbar{
-    width: 100%
+    width: 100%;
+    background-color: #101A26 !important;
 }
 
 
@@ -172,9 +173,7 @@ margin: 0;
 }
 
 #footer-div {
-    padding: 0;
-    margin: 0;
-    background-color:#027373;
+    background-color:#026873;
 }
 
 #footer-div p {
