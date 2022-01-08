@@ -54,7 +54,7 @@
 
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
                         <a href="{% url 'home' %}" class="navbar-brand main-logo-link" id="main-logo">
-                            <h3 class="logo-font my-0" id="logo-text">Graphic Content (version2 branch)</h3>
+                            <p class="logo-font my-0" id="logo-text">Graphic Content (version2 branch)</p>
                         </a>
 
                         <div>
@@ -125,10 +125,20 @@
     {% endblock %}
 
     <footer>
-        <div class="container-fluid" id="footer-div">
-            <a href="https://github.com/clacken-dev">
-                <p>ClackenDev ©2021</p>
-            </a>
+        <div id="footer-div">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#">
+                            <h4>GRAPHIC CONTENT</h4>
+                        </a>
+                        <p>Graphic Content is the go-to online platform for professional custom graphics.</p>
+                        <a href="https://github.com/clacken-dev">
+                            <p>ClackenDev ©2021</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
