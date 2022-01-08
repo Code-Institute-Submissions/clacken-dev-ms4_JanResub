@@ -42,11 +42,13 @@ margin: 0;
     width: 100%;
 }
 
+/*
 .cutaway{
     -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
         clip-path: polygon(0 0, 0 100%, 100% 55%, 100% 100%, 100% 0);
     overflow: hidden;
 }
+*/
 
 .overlay {
 	height: 100%;
@@ -203,7 +205,8 @@ margin: 0;
 
  @media (max-width: 768px) {
     .navbar-toggler{
-        margin-left: 17rem;
+        float: right;
+        margin-right: 0.5em;
     }
     .navbar-nav{
         margin-left: 15rem;
