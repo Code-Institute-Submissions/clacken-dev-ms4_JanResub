@@ -47,7 +47,9 @@
 </head>
 
 <body>
+    <!--
     <div id="main-image">
+        -->
         <header class="container-fluid fixed-top" id="header-container">
             <div class="row">
                 <div class="col" id="nav-col">
@@ -106,16 +108,11 @@
                 </div>
             </div>
 
-            <div class="row primary-header">
-                <div class="col-md-12 col-lg-6">
-                    <h4>Main Site Header</h4>
-                </div>
-                <div class="col-md-12 col-lg-6 center-md d-md-inline">
-                    <h4>Second Section Header</h4>
-                </div>
-            </div>
+            
         </header>
+        <!--
     </div>
+    -->
 
 
     {% if messages %}
@@ -123,6 +120,14 @@
     {% endif %}
 
     {% block page_header %}
+    <div class="row primary-header">
+        <div class="col-md-12 col-lg-6">
+            <h4>Main Site Header</h4>
+        </div>
+        <div class="col-md-12 col-lg-6 center-md d-md-inline">
+            <h4>Second Section Header</h4>
+        </div>
+    </div>
     {% endblock %}
 
     {% block content %}

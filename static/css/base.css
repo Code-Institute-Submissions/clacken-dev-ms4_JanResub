@@ -17,6 +17,9 @@ body {
 margin: 0;
 }
 
+.top-padding{
+    height:100px;
+}
 
 #index-image{
     background: url('/media/background-image.jpg') no-repeat center center fixed;
@@ -25,6 +28,12 @@ margin: 0;
     width: 100%;
     top: 120px;     
 }
+
+.hero-text{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
 .page-background{
     background: url('/media/page-background.jpg') no-repeat center center fixed;
 	background-size: cover;
