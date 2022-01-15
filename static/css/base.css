@@ -24,7 +24,7 @@ margin: 0;
 #index-image{
     background-color:#054A59;
 	background-size: cover;
-    height: calc(80vh - 100px);
+    height: 80%;
     width: 100%;
     top: 120px;     
 }
@@ -79,6 +79,11 @@ margin: 0;
 
 #header-container{
     margin-bottom: 10rem;
+}
+
+#header-row{
+    margin-right:0;
+    margin-left:0;
 }
 
 #logo-text {
