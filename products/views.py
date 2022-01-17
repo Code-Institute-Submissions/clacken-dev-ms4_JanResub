@@ -4,6 +4,7 @@ from orders.models import Testimonial
 
 # Create your views here.
 
+
 def all_products(request):
     """ A view to show all products """
     testimonies = Testimonial.objects.all()

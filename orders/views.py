@@ -22,6 +22,7 @@ def orders(request):
     
     return render(request, template, context)
 
+
 @login_required
 def update_order(request, order_number):
     """ A view to add the finished graphics to an order """
@@ -38,6 +39,7 @@ def update_order(request, order_number):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_order(request, order_number):
     """ Edit a graphic by adding image and updating the instance """
@@ -49,7 +51,8 @@ def edit_order(request, order_number):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('orders'))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product.\
+                          Please ensure the form is valid.')
     else:
         form = OrderForm(instance=order)
         messages.info(request, f'You are editing {order_number}')

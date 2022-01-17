@@ -32,9 +32,8 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
 
-        self.total = self.service.price
+        self.total = self.total
         super().save(*args, **kwargs)
-
 
 
 class Testimonial(models.Model):
@@ -44,10 +43,10 @@ class Testimonial(models.Model):
     customer_name = models.CharField(max_length=32, null=True)
     testimony = models.TextField(null=False, blank=False)
     product_purchased = models.ForeignKey(Product, on_delete=models.SET_NULL,
-                                     null=True, blank=True,
-                                     related_name='product')
-
+                                          null=True, blank=True,
+                                          related_name='product')
+ 
     def __str__(self):
-        return self.testimony
+        return str(self.testimony)
 
 

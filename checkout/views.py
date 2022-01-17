@@ -8,6 +8,7 @@ from profiles.models import UserProfile
 
 import stripe
 
+
 @login_required
 def checkout(request, product_id):
     """ A view to show the checkout page for an item and handle payments """ 
