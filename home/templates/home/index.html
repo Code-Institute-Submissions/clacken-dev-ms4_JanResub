@@ -28,12 +28,12 @@
 {% block content %}
 <div class="container-fluid header-container">
   <div class="col">
-    <h4 class="logo-font text-black text-center">
+    <h4 class="logo-font text-black text-center mt-4">
       Custom Designed Graphics to Suit Every Need
     </h4>
   </div>
 </div>
-<div class="container">
+<div class="container index-section">
   <div class="row text-center">
     <div class="col">
       We design everything from website graphics to logos and coffee cups!
@@ -56,9 +56,10 @@
   </div>
   <hr>
 </div>
-<div class="container">
+<div class="container index-section">
   <div class="row text-center">
     <div class="col">
+      <h4 class="mt-2 mb-4">Showpieces on Demand</h4>
       Superb work with a gallery showcasing our quality.
       <span>
         Here at graphic content we believe that the best way to show people is by showing them our award winning
@@ -74,5 +75,16 @@
     </div>
   </div>
   <hr>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+        <h4 class="mt-2 mb-4">Unique Customer Portal</h4>
+        <p>Signing up gives new customers a unique portal where they can view their profile. This contains an order history where they can view 
+          their orders and track if orders are fulfilled or not. They can view finished work here and download their orders as needed.
+        </p>
+        <a class="btn btn-outline-secondary mt-2 mb-4" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+    </div>
+  </div>
 </div>
 {% endblock %}

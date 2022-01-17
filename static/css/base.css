@@ -129,6 +129,10 @@ margin: 0;
     z-index: -2;
 }
 
+.index-section{
+    margin-top: 2rem;
+}
+
 #product-details{
     padding-top: 5rem;
     width: 100%;
