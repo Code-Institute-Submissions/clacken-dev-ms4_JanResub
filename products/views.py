@@ -16,7 +16,7 @@ def all_products(request):
         'testimonies': testimonies,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, 'products/products2.html', context)
 
 
 def product_detail(request, product_id):
