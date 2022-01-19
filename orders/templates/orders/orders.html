@@ -9,33 +9,41 @@
 <div class="container h-100 mx-auto page-body">
     <div class="row h-100 mx-auto">
         <div class="col">
-        <h4>Fulfilled Orders</h4>
-        {% for order in orders %}
-        
-        {% if order.image %}
-        
-        <div class="card order-card mx-auto">
-            <span>Order Number: {{ order.order_number }}</span>
-            <span>Order Type: {{ order.service}}</span>
-            <span>Order Owner: {{ order.user_profile.user.email }}</span>
-            <span>Order Description: {{ order.description}}</span>
+            <h4>Fulfilled Orders</h4>
+            {% for order in orders %}
+
+            {% if order.image %}
+
+            <div class="card order-card mx-auto">
+                <span>Order Number: {{ order.order_number }}</span>
+                <span>Order Type: {{ order.service}}</span>
+                <span>Order Owner: {{ order.user_profile.user.email }}</span>
+                <span>Order Description: {{ order.description}}</span>
+            </div>
         </div>
-    </div>
         {% else %}
+        <h5>No Fulfilled orders</h5>
+        {% endif %}
         <div class="col">
-        <h4>Unfulfilled Orders</h4>
-        <div class="card order-card mx-auto mt-5 mb-5">
-            <span>Order Number: {{ order.order_number }}</span>
-            <span>Order Type: {{ order.service}}</span>
-            <span>Order Owner: {{ order.user_profile.user.email }}</span>
-            <span>Order Description: {{ order.description}}</span>
-            <span class="mt-2 mb-2"></span>
-            <a class="btn btn-outline-success" href="{% url 'edit_order' order.order_number %}" role="button">Update Order</a>
-            <span class="mt-2 mb-2"></span>
+            <h4>Unfulfilled Orders</h4>
+            {% if not order.image %}
+            <div class="card order-card mx-auto mt-5 mb-5">
+                <span>Order Number: {{ order.order_number }}</span>
+                <span>Order Type: {{ order.service}}</span>
+                <span>Order Owner: {{ order.user_profile.user.email }}</span>
+                <span>Order Description: {{ order.description}}</span>
+                <span class="mt-2 mb-2"></span>
+                <a class="btn btn-outline-success" href="{% url 'edit_order' order.order_number %}" role="button">Update
+                    Order</a>
+                <span class="mt-2 mb-2"></span>
+            </div>
+            {% else %}
+            <h4>All orders have been fulfilled.</h4> 
+            {% endif %}
         </div>
     </div>
-</div>
-    {% endif %}
+
+
     {% endfor %}
 </div>
 

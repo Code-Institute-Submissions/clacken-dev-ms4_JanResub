@@ -16,23 +16,33 @@
 <div class="overlay"></div>
 
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mt-4">
             <hr>
-            <h2 class="logo-font mb-4">Checkout</h2>
+            <h2 class="logo-font my-4">Checkout</h2>
             <hr>
         </div>
-
-        <div class="col-lg-6 text-center">
+        <!-- Description of product, how to order + order summary -->
+        <div class="col-lg-6 text-center order-lg-last my-4">
+            <span>
+                <h3>Order Summary</h3>
+                
+                    <h5> {{ product.service_type }}</h5>
+                    <h5>€{{ product.price }}</h5>
+                
+            </span>
+        </div>
+        <div class="col-lg-6 text-center my-4">
             <h4>Graphic Description</h4>
             <p>Please fill out the form below to complete your order. Make the description as descriptive as possible.
                 Tell
                 us about
                 the theme you want, the colours, textures, inspiration and also the necessary file dimensions.
             </p>
+            <div class="container-fluid">
             <form action="{% url 'checkout' product.id %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 
-                <fieldset class="rounded mb-5" id="description-field">
+                <fieldset class="px-auto" id="description-field">
                     {{ order_form.description }}
                 </fieldset>
                 <fieldset class="px-3">
@@ -42,7 +52,7 @@
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
-                <div class="submit-button text-center mt-5 mb-5 w-auto">
+                <div class="submit-button text-center my-5 w-auto">
                     <button id="submit-button" class="btn btn-outline-success rounded-0">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
@@ -57,19 +67,12 @@
                     </p>
                 </div>
             </form>
-            <span class="mb-4">
+        </div>
+            <span class="mb-4 ">
                 <h5>Please wait until the page refreshes before navigating away from this page.</h5>
             </span>
         </div>
-        <div class="col-lg-6 text-center">
-            <span>
-                <h3>Order Summary</h3>
-                
-                    <h5> {{ product.service_type }}</h5>
-                    <h5>€{{ product.price }}</h5>
-                
-            </span>
-        </div>
+        
     </div>
 
 
