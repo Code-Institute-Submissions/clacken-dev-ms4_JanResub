@@ -54,7 +54,7 @@
                         <span class="workout-details-label">Price:</span>
                         <span class="workout-details-value">{{ product.price }}</span>
                     </div>
-                    
+                    <!-- Back to Products and Order now buttons -->
                         <div class="row">
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-back rounded-2 mt-5">
@@ -63,9 +63,15 @@
                                     </span>
                                     <span class="text-uppercase">Back</span>
                                 </a>
-                                
                             </div>
-                            
+                            <div class="col-12">
+                                <a href="{% url 'checkout' product.id %}" class="btn btn-back rounded-2 mt-5">
+                                    <span class="text-uppercase">Order Now</span>
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     
                 </div>
