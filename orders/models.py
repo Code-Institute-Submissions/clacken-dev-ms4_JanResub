@@ -17,6 +17,8 @@ class Order(models.Model):
                                 default=0)
     description = models.TextField(null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
+    is_fulfilled = models.BooleanField(default=False)
+    changes_requested = models.TextField(null=False, blank=True)
 
     def _generate_order_number(self):
         """
