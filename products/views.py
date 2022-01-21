@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Product, Review
 from orders.models import Testimonial
+from profiles.models import UserProfile
 
 from .forms import ReviewForm
 # Create your views here.
@@ -48,12 +49,13 @@ def add_review(request, product_id):
     if request.method == "POST":
         # Get the product currently displayed
         product = get_object_or_404(Product, pk=product_id)
+        profile = get_object_or_404(UserProfile, user=request.user)
         # create a form to review product
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.workout = workout
-            review.user = request.user
+            review.product = product
+            review.user = profile
             review.save()
             messages.success(request, "Review submitted successfully!")
             return redirect(
