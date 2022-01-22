@@ -70,3 +70,22 @@ def add_review(request, product_id):
     return render(
         request, "products/add_review.html", {"form": form, "product_id": product_id}
     )
+
+
+def edit_product(request, product_id):
+    """Allow superusers to edit products"""
+
+    # Check if user is a superuser
+    if not request.user.is_superuser:
+    # If not, redirect to home page
+        messages.error(request, "Sorry, only admin can do that!")
+        return redirect(reverse("home"))
+
+    # Get the workout to be edited
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/edit_product.html', context)
