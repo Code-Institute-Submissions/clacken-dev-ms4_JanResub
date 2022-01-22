@@ -5,7 +5,7 @@ from .models import Product, Review
 from orders.models import Testimonial
 from profiles.models import UserProfile
 
-from .forms import ReviewForm
+from .forms import ReviewForm, ProductForm
 # Create your views here.
 
 
@@ -81,11 +81,31 @@ def edit_product(request, product_id):
         messages.error(request, "Sorry, only admin can do that!")
         return redirect(reverse("home"))
 
-    # Get the workout to be edited
+    
+    # Get the product to be edited
     product = get_object_or_404(Product, pk=product_id)
-
+    
+    #if the form is submitted
+    if request.method == "POST":
+        #Create an instance of the form and populate with current product details
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "successfully updated the product")
+            return redirect(reverse("product_detail", args=[product.id]))
+        else:
+            message.error(
+                request,
+                "Failed to edit the current product. \
+                Please ensure that the form is valid."
+            )
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f"You are editing {product.service_type}")
+       
     context = {
         'product': product,
+        'form':form,
     }
 
     return render(request, 'products/edit_product.html', context)
