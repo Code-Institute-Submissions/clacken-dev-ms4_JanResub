@@ -37,12 +37,13 @@
                                     </a>  
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.service_type }}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}product1.jpg" alt="{{ product.service_type }}">
                                     </a>  
                                 {% endif %}
                                 <div class="card-body txt-shadow">
-                                    <p class="card-title">{{ product.service_type }}</p>
-                                    <p class="card-text">{{ product.price }}</p>
+                                    <p class="card-title lead font-weight-bold">{{ product.service_type }}</p>
+                                    <p class="card-text">Short Description</p>
+                                    <p class="card-text">Lead Time: 1-2 Weeks</p>
                                 </div>
                                 <div class="card-footer bg-white rounded-4">
                                     <div class="row">
