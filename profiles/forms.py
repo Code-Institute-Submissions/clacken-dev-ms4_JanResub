@@ -39,7 +39,7 @@ class UserProfileForm(forms.ModelForm):
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('description', 'service', 'image', 'is_fulfilled', 'changes_requested')
+        fields = ('description', 'changes_requested')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

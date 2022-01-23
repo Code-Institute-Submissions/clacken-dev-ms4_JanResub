@@ -49,6 +49,10 @@
                 <!-- Card for each product -->
                 <div class="card shadow h-100 border border-dark rounded-4 px-5">
                     <form action="{% url 'request_changes' order.order_number %}" method="POST">
+                        <span clss="mb-4">
+                            <h4 class="mt-4">Current Completed Work</h4>
+                            <img class="card-img-top img-fluid mt-4" src="{{ order.image.url }}" alt="{{ order.service }}">
+                        </span>
                         {% csrf_token %}
                         {{ form | crispy }}
                         <div class="text-center my-3">
