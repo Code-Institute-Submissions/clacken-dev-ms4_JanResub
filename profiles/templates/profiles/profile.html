@@ -48,14 +48,14 @@
         <span>Paid: ${{ order.total }}</span>
         <span>Service ordered: {{ order.service }}</span>
         <div class="my-4 text-center">
-            <a href="#" class="btn btn-outline-secondary btn-sm me-2">Request Changes</a>
+            <a href="{% url 'request_changes' order.order_number %}" class="btn btn-outline-secondary btn-sm me-2">Request Changes</a>
         </div>
     </div>
     {% else %}
     <h2 class="mt-4">Non-fulfilled Orders</h2>
     <div class="card mt-3 mb-3 text-center">
         
-        <span class="mb-4">
+        <span class="my-4">
              Order Number: {{ order.order_number }}
         </span>
         <span>Order Date: {{ order.date }}</span>
