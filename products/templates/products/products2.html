@@ -2,99 +2,105 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 <!-- Content block -->
 {% block content %}
-    <!-- All Products page -->
-    <div class="container-fluid">
-        <div class="row my-4">
-            <div class="col text-center">
-                <h1 class="display-5 display-md-3 text-uppercase mb-4 mt-5">Products</h1>
-                <hr>
-            </div>
+<!-- All Products page -->
+<div class="container-fluid">
+    <div class="row my-4">
+        <div class="col text-center">
+            <h1 class="display-5 display-md-3 text-uppercase mb-4 mt-5">Products</h1>
+            <hr>
         </div>
-        <div class="row">
-            <div class="col-10 offset-1 text-dark">
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-                <div class="row mt-1 mb-2"></div>
-                <div class="row d-flex justify-content-evenly text-center mb-4">
-                    <!-- Django for loop iterates through the products -->
-                    {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4">
-                            <!-- Card for each product -->
-                            <div class="card shadow h-100 border border-dark rounded-4">
-                                {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid border-bottom border-dark" src="{{ product.image.url }}" alt="{{ product.service_type }}">
-                                    </a>    
-                                {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.service_type }}">
-                                    </a>  
-                                {% endif %}
-                                <div class="card-body txt-shadow">
-                                    <p class="card-title lead font-weight-bold">{{ product.service_type }}</p>
-                                    <p class="card-text">Short Description</p>
-                                    <p class="card-text">Lead Time: {{ product.lead_time }}</p>
-                                </div>
-                                <div class="card-footer bg-white rounded-4">
-                                    <div class="row">
-                                        <div class="col my-2">
-                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-secondary">Details</a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead font-weight-bold">Price: €{{ product.price }}</p>
-                                            <!-- Edit and delete buttons -->
-                                            {% if request.user.is_superuser %}
-                                            <small class="ms-3">
-                                                <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-secondary btn-sm me-2">Edit</a>
-                                                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm">Delete</a>
-                                            </small>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END product card -->
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 text-dark">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <div class="row mt-1 mb-2"></div>
+            <div class="row d-flex justify-content-evenly text-center mb-4">
+                <!-- Django for loop iterates through the products -->
+                {% for product in products %}
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <!-- Card for each product -->
+                    <div class="card shadow h-100 border border-dark rounded-4">
+                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid border-bottom border-dark" src="{{ product.image.url }}"
+                                alt="{{ product.service_type }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.service_type }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body txt-shadow">
+                            <p class="card-title lead font-weight-bold">{{ product.service_type }}</p>
+                            <p class="card-text">Short Description</p>
+                            <p class="card-text">Lead Time: {{ product.lead_time }}</p>
                         </div>
-                        <!-- Add <hr> after each col depending on screen size -->
-                        {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                        <div class="row">
+                            <div class="col my-2">
+                                <a href="{% url 'product_detail' product.id %}"
+                                    class="btn btn-outline-secondary">Details</a>
+                            </div>
                         </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
+                        <div class="card-footer bg-white rounded-4">
+
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead font-weight-bold">Price: €{{ product.price }}</p>
+                                    <!-- Edit and delete buttons -->
+                                    {% if request.user.is_superuser %}
+                                    <small class="ms-3">
+                                        <a href="{% url 'edit_product' product.id %}"
+                                            class="btn btn-outline-secondary btn-sm me-2">Edit</a>
+                                        <a href="{% url 'delete_product' product.id %}"
+                                            class="btn btn-danger btn-sm">Delete</a>
+                                    </small>
+                                    {% endif %}
+                                </div>
                             </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:6 %}
-                            <div class="col-12 d-none d-md-block d-lg-none d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                        </div>
+                    </div>
+                    <!-- END product card -->
                 </div>
+                <!-- Add <hr> after each col depending on screen size -->
+                {% if forloop.counter|divisibleby:1 %}
+                <div class="col-12 d-sm-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-block mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:6 %}
+                <div class="col-12 d-none d-md-block d-lg-none d-xl-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block postload_js %}
-    {{ block.super }}
+{{ block.super }}
 {% endblock %}

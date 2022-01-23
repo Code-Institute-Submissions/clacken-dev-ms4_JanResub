@@ -8,6 +8,7 @@ class Product(models.Model):
     """
     service_type = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    short_description = models.TextField(null=True)
     description = models.TextField(null=True)
     lead_time = models.CharField(max_length=254)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
