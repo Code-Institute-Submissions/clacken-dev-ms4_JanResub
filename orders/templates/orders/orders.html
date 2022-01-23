@@ -21,12 +21,11 @@
                 <span>Order Description: {{ order.description}}</span>
             </div>
         </div>
-        {% else %}
-        <h5>No Fulfilled orders</h5>
         {% endif %}
+        {% if not order.image %}
         <div class="col">
             <h4>Unfulfilled Orders</h4>
-            {% if not order.image %}
+
             <div class="card order-card mx-auto mt-5 mb-5">
                 <span>Order Number: {{ order.order_number }}</span>
                 <span>Order Type: {{ order.service}}</span>
@@ -37,8 +36,7 @@
                     Order</a>
                 <span class="mt-2 mb-2"></span>
             </div>
-            {% else %}
-            <h4>All orders have been fulfilled.</h4> 
+
             {% endif %}
         </div>
     </div>

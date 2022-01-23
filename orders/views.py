@@ -47,6 +47,7 @@ def edit_order(request, order_number):
     if request.method == 'POST':
         form = OrderForm(request.POST, request.FILES, instance=order)
         if form.is_valid():
+            form.is_fulfilled = True
             form.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('orders'))
