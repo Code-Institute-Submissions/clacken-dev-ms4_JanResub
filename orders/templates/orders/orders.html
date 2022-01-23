@@ -12,7 +12,7 @@
             <h4>Orders</h4>
             {% for order in orders %}
             {% if order.image %}
-            <h4>Unfulfilled</h4>
+            <h4>Fulfilled</h4>
             <div class="card order-card mx-auto text-center">
                 <span class="mt-4">Order Number: {{ order.order_number }}</span>
                 <span>Order Type: {{ order.service}}</span>
