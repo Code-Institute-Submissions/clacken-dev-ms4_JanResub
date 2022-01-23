@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row my-4">
             <div class="col text-center">
-                <h1 class="display-5 display-md-3 text-uppercase mb-4 mt-5">Products</h1>
+                <h1 class="display-5 display-md-3 text-uppercase mb-4 mt-5">Edit Product</h1>
                 <hr>
             </div>
         </div>
@@ -67,26 +67,7 @@
                             <!-- END product card -->
                         </div>
                         <!-- Add <hr> after each col depending on screen size -->
-                        {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
-                            <hr>
-                        </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:6 %}
-                            <div class="col-12 d-none d-md-block d-lg-none d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
+                     
                     {% endfor %}
                 </div>
             </div>

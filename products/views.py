@@ -108,4 +108,4 @@ def edit_product(request, product_id):
         'form':form,
     }
 
-    return render(request, 'products/edit_product.html', context)
+    return render(request, 'products/edit_product2.html', context)
