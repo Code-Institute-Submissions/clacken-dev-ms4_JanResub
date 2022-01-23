@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="overlay"></div>
+<div class="container header-container page-body">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <hr>
+            <h2 class="logo-font mb-4">View Order</h2>
+            <h5 class="text-muted">View information about the selected order.</h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+           
+                <div class="text-right">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'orders' %}">Cancel</a>
+                     
+                </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
