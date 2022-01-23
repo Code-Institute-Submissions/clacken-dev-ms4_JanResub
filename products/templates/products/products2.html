@@ -44,10 +44,10 @@
                         {% endif %}
                         <div class="card-body txt-shadow">
                             <p class="card-title lead font-weight-bold">{{ product.service_type }}</p>
-                            <p class="card-text">Short Description</p>
+                            <p class="card-text">{{ product.short_description }}</p>
                             <p class="card-text">Lead Time: {{ product.lead_time }}</p>
                         </div>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col my-2">
                                 <a href="{% url 'product_detail' product.id %}"
                                     class="btn btn-outline-secondary">Details</a>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="card-footer bg-white rounded-4">
 
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col">
                                     <p class="lead font-weight-bold">Price: €{{ product.price }}</p>
                                     <!-- Edit and delete buttons -->
