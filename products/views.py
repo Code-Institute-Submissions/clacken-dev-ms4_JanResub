@@ -112,9 +112,8 @@ def edit_product(request, product_id):
 
 
 @login_required
-def delete_product(request, workout_id):
+def delete_product(request, product_id):
     """Allow a superuser to delete a product from the product page"""
-
     # Check if the current user is a superuser
     if not request.user.is_superuser:
         # If not a superuser then redirect to home page
