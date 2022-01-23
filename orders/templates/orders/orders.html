@@ -21,7 +21,8 @@
                 <span>Order Description: {{ order.description}}</span>
                 <div class="text-center my-5">
                     <span class="mt-2 mb-2"></span>
-                    <a class="btn btn-outline-success" href="{% url 'view_order' order.order_number %}" role="button">View Order</a>
+                    <a class="btn btn-outline-success" href="{% url 'view_order' order.order_number %}"
+                        role="button">View Order</a>
                     <span class="mt-2 mb-2"></span>
                 </div>
             </div>
@@ -35,6 +36,9 @@
                 <span class="mt-4">Order Number: {{ order.order_number }}</span>
                 <span>Order Type: {{ order.service}}</span>
                 <span>Order Owner: {{ order.user_profile.user.email }}</span>
+                {% if order.changes_requested %}
+                <span>Order Description: {{ order.changes_requested}}</span>
+                {% endif %}
                 <span>Order Description: {{ order.description}}</span>
                 <div class="text-center my-5">
                     <span class="mt-2 mb-2"></span>
@@ -44,14 +48,30 @@
                     <span class="mt-2 mb-2"></span>
                 </div>
             </div>
-
             {% endif %}
+            {% if order.changes_requested %}
+            <div class="col">
+                <h4>Changes Requested Orders</h4>
+
+                <div class="card order-card mx-auto mt-5 mb-5 text-center">
+                    <span class="mt-4">Order Number: {{ order.order_number }}</span>
+                    <span>Order Type: {{ order.service}}</span>
+                    <span>Order Owner: {{ order.user_profile.user.email }}</span>
+                    <span>Order Description: {{ order.changes_requested}}</span>
+                    <span>Order Description: {{ order.description}}</span>
+                    <div class="text-center my-5">
+                        <span class="mt-2 mb-2"></span>
+                        <a class="btn btn-outline-success" href="{% url 'edit_order' order.order_number %}"
+                            role="button">Update
+                            Order</a>
+                        <span class="mt-2 mb-2"></span>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
         </div>
+        {% endfor %}
     </div>
 
 
-    {% endfor %}
-</div>
-
-
-{% endblock %}
+    {% endblock %}
