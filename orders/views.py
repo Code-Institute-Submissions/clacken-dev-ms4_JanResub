@@ -24,23 +24,6 @@ def orders(request):
 
 
 @login_required
-def update_order(request, order_number):
-    """ A view to add the finished graphics to an order """
-
-    order = get_object_or_404(Order, order_number=order_number)
-    form = OrderForm(instance=order)
-
-    context = {
-        'order': order,
-        'form': form
-    }
-
-    template = 'orders/update_order.html'
-
-    return render(request, template, context)
-
-
-@login_required
 def edit_order(request, order_number):
     """ Edit a graphic by adding image and updating the instance """
     order = get_object_or_404(Order, order_number=order_number)
