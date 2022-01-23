@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100 mx-auto page-body">
-    <div class="row h-100 mx-auto">
+<div class="container mx-auto page-body">
+    <div class="row mx-auto">
         <div class="col">
             <h4>Fulfilled Orders</h4>
             {% for order in orders %}
@@ -53,18 +53,18 @@
             <div class="col">
                 <h4>Changes Requested Orders</h4>
 
-                <div class="card order-card mx-auto mt-5 mb-5 text-center">
+                <div class="card order-card mx-auto text-center">
                     <span class="mt-4">Order Number: {{ order.order_number }}</span>
                     <span>Order Type: {{ order.service}}</span>
                     <span>Order Owner: {{ order.user_profile.user.email }}</span>
-                    <span>Order Description: {{ order.changes_requested}}</span>
                     <span>Order Description: {{ order.description}}</span>
+                    <span>Changes Requested: {{ order.changes_requested}}</span>
                     <div class="text-center my-5">
                         <span class="mt-2 mb-2"></span>
                         <a class="btn btn-outline-success" href="{% url 'edit_order' order.order_number %}"
                             role="button">Update
                             Order</a>
-                        <span class="mt-2 mb-2"></span>
+                        <span class="mt-2"></span>
                     </div>
                 </div>
             {% endif %}

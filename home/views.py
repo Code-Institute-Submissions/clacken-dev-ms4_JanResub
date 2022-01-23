@@ -19,4 +19,4 @@ def gallery(request):
         'images': images,
     }
 
-    return render(request, 'home/gallery.html', context)
+    return render(request, 'home/gallery_copy.html', context)
