@@ -11,9 +11,7 @@
         <div class="col">
             <h4>Fulfilled Orders</h4>
             {% for order in orders %}
-
             {% if order.image %}
-
             <div class="card order-card mx-auto text-center">
                 <span class="mt-4">Order Number: {{ order.order_number }}</span>
                 <span>Order Type: {{ order.service}}</span>
@@ -31,7 +29,6 @@
         {% if not order.image %}
         <div class="col">
             <h4>Unfulfilled Orders</h4>
-
             <div class="card order-card mx-auto mt-5 mb-5 text-center">
                 <span class="mt-4">Order Number: {{ order.order_number }}</span>
                 <span>Order Type: {{ order.service}}</span>
@@ -52,7 +49,6 @@
             {% if order.changes_requested %}
             <div class="col">
                 <h4>Changes Requested Orders</h4>
-
                 <div class="card order-card mx-auto text-center">
                     <span class="mt-4">Order Number: {{ order.order_number }}</span>
                     <span>Order Type: {{ order.service}}</span>
@@ -67,7 +63,7 @@
                         <span class="mt-2"></span>
                     </div>
                 </div>
-            {% endif %}
+                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -75,4 +71,4 @@
     <div class="page-spacer"></div>
 </div>
 
-    {% endblock %}
+{% endblock %}
