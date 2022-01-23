@@ -34,7 +34,7 @@
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid border-bottom border-dark" src="{{ product.image.url }}" alt="{{ product.service_type }}">
-                                    </a>  
+                                    </a>    
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.service_type }}">
