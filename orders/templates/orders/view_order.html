@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="overlay"></div>
+<div class="container header-container page-body">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <hr>
+            <h2 class="logo-font mb-4">View Order</h2>
+            <h5 class="text-muted text-center">View information about the selected order.</h5>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <div class="text-right">
+                <div class="card order-card mx-auto text-center">
+                    <span class="mt-4">Order Number: {{ order.order_number }}</span>
+                    <span>Order Type: {{ order.service}}</span>
+                    <span>Order Owner: {{ order.user_profile.user.email }}</span>
+                    <span>Order Description: {{ order.description}}</span>
+                    <span>Order Fulfilled: {{ order.is_fulfilled}}</span>
+                    <span>
+                        <h5 class="mt-4">Completed Graphic:</h5>
+                        <img class="card-img-top img-fluid mt-4" src="{{ order.image.url }}"
+                            alt="{{ order.service }}">
+                    </span>
+                    <div class="text-center my-5">
+                        <span class="mt-2 mb-2"></span>
+                        <a class="btn btn-outline-success" href="{% url 'orders' %}"
+                            role="button">Back</a>
+                        <span class="mt-2 mb-2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

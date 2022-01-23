@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<!-- Gallery Images page -->
+<div class="container-fluid">
+    <div class="row my-4">
+        <div class="col text-center">
+            <h1 class="display-5 display-md-3 text-uppercase mb-4 mt-5">Gallery</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 text-dark">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <div class="row mt-1 mb-2"></div>
+            <div class="row d-flex justify-content-evenly text-center mb-4">
+                <!-- Django for loop iterates through the gallery images -->
+                {% for image in images %}
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <!-- Card for each image -->
+                    <div class="card shadow h-100 border border-dark rounded-4">
+                        <a href="#">
+                            <img class="card-img-top img-fluid border-bottom border-dark" src="{{ image.image.url }}"
+                                alt="Gallery Image">
+                        </a>
+                        <div class="card-body txt-shadow">
+                            <p class="card-title lead font-weight-bold">Graphic Content</p>
+                            <p class="card-text">Gallery Exhibit</p>
+                        </div>
+                    </div>
+                    <!-- END image card -->
+                </div>
+                <!-- Add <hr> after each col depending on screen size -->
+                {% if forloop.counter|divisibleby:1 %}
+                <div class="col-12 d-sm-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-block mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:6 %}
+                <div class="col-12 d-none d-md-block d-lg-none d-xl-none mb-5">
+                    <hr>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{% endblock %}

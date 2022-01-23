@@ -105,7 +105,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# These settings below were imported from Code Institute's 'Boutique Ado' settings.py file
+# These settings below were imported from Code Institute's
+# 'Boutique Ado' settings.py file
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'

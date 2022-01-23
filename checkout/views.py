@@ -3,10 +3,11 @@ from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from .forms import OrderForm
-from .models import Product, Order
+from orders.models import Product, Order
 from profiles.models import UserProfile
 
 import stripe
+
 
 @login_required
 def checkout(request, product_id):

@@ -2,24 +2,40 @@
 {% load static %}
 
 {% block page_header %}
-<div class="row">
-  <div class="col">
-    <div id="index-image" class="cutaway">
-      <h4>Hero Text</h4>
+
+
+<div id="index-image">
+  <div class="top-padding"></div>
+  <div class="row" id="header-row">
+    <div class="col-sm-12 col-md-6">
+      <h2 class="text-white hero-text logo-font text-center">Professional Graphics, Designed By You</h2>
+
+      <p class="text-white text-center hero-text">A professional design team with a wealth of experience is
+        always available to make your designs come to life.
+        We guarantee only the highest quality graphics are returned to the customer and ensure that all completed
+        graphics accurately represent the customer's desires. Don't hesitate to entrust your requirements to us
+        for cutting-edge industry standard graphics.
+      </p>
+
     </div>
-    <div class="container-fluid header-container">
-      <div class="col">
-        <h4 class="logo-font text-black text-center">
-          Custom Designed Graphics to Suit Every Need
-        </h4>
-      </div>
+    <div class="col-sm-12 col-md-6 d-md-inline">
+      <div class="hero-image"></div>
     </div>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid header-container">
+  <div class="row">
+    <div class="col">
+      <h4 class="logo-font text-black text-center mt-4">
+        Custom Designed Graphics to Suit Every Need
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="container index-section">
   <div class="row text-center">
     <div class="col">
       We design everything from website graphics to logos and coffee cups!
@@ -28,7 +44,8 @@
         We create custom designs based on your specifications and can also provide a world-class design
         call with you to plan your graphics. We use the latest cutting edge technology and software to create
         art pieces which are out of this world. Whether you're looking for a small, elegant logo or a bold and
-        eye-catching web banner, we've got you covered. You'll find our design options available to view on our products
+        eye-catching web banner, we've got you covered. You'll find our design options available to view on our
+        products
         page
         where you can submit your design request.
       </span>
@@ -41,13 +58,16 @@
   </div>
   <hr>
 </div>
-<div class="container">
+<div class="container index-section">
   <div class="row text-center">
     <div class="col">
+      <h4 class="mt-2 mb-4">Showpieces on Demand</h4>
       Superb work with a gallery showcasing our quality.
       <span>
-        Here at graphic content we believe that the best way to show people is by showing them our award winning designs.
-        Our gallery page features some of the best graphics ever created on this world and we want to share them with you.
+        Here at graphic content we believe that the best way to show people is by showing them our award winning
+        designs.
+        Our gallery page features some of the best graphics ever created on this world and we want to share them with
+        you.
       </span>
       <div class="my-5">
         <h4>
@@ -57,5 +77,18 @@
     </div>
   </div>
   <hr>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h4 class="mt-2 mb-4">Unique Customer Portal</h4>
+      <p>Signing up gives new customers a unique portal where they can view their profile. This contains an order
+        history where they can view
+        their orders and track if orders are fulfilled or not. They can view finished work here and download their
+        orders as needed.
+      </p>
+      <a class="btn btn-outline-secondary mt-2 mb-4" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+    </div>
+  </div>
 </div>
 {% endblock %}

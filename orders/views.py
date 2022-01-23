@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from profiles.models import UserProfile
-from checkout.models import Order
+from .models import Order
 from .forms import OrderForm
 
 # Create your views here.
@@ -22,21 +22,6 @@ def orders(request):
     
     return render(request, template, context)
 
-@login_required
-def update_order(request, order_number):
-    """ A view to add the finished graphics to an order """
-
-    order = get_object_or_404(Order, order_number=order_number)
-    form = OrderForm(instance=order)
-
-    context = {
-        'order': order,
-        'form': form
-    }
-
-    template = 'orders/update_order.html'
-
-    return render(request, template, context)
 
 @login_required
 def edit_order(request, order_number):
@@ -45,11 +30,14 @@ def edit_order(request, order_number):
     if request.method == 'POST':
         form = OrderForm(request.POST, request.FILES, instance=order)
         if form.is_valid():
-            form.save()
+            obj = form.save(commit=False)
+            form.is_fulfilled = True
+            obj.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('orders'))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product.\
+                          Please ensure the form is valid.')
     else:
         form = OrderForm(instance=order)
         messages.info(request, f'You are editing {order_number}')
@@ -59,5 +47,20 @@ def edit_order(request, order_number):
         'form': form,
         'order': order,
     }
+
+    return render(request, template, context)
+
+
+@login_required
+def view_order(request, order_number):
+    """ A view to add the finished graphics to an order """
+
+    order = get_object_or_404(Order, order_number=order_number)
+    
+    context = {
+        'order': order,
+    }
+
+    template = 'orders/view_order.html'
 
     return render(request, template, context)

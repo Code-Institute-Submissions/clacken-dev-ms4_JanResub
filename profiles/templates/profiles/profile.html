@@ -15,9 +15,9 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container page-body">
+<div class="container-fluid mt-5">
     <div class="row">
-        <div class="col">
+        <div class="col text-center">
             <hr>
             <h2 class="logo-font mb-4">My Profile</h2>
             <hr>
@@ -28,32 +28,45 @@
 
     </div>
     <h2>Fulfilled Orders</h2>
-    {% for order in orders %}
-    {% if order.image %}
-    <div class="card mt-3 mb-3">
-        <span>
-            <a href="#" title="{{ order.order_number }}">
-                {{ order.order_number }}
-                <span>
-                    <img class="card-img-top img-fluid" src="{{ order.image.url }}" alt="{{ order.service }}">
-                </span>
-            </a>
-        </span>
-        <span>{{ order.date }}</span>
-        <span>${{ order.total }}</span>
-        <span>Service ordered: {{ order.service }}</span>
-    </div>
-    {% else %}
-    <div class="card mt-3 mb-3">
-        <h2>Non-fulfilled Orders</h2>
-        <span>
-            <a href="#" title="{{ order.order_number }}">
-                {{ order.order_number }}
-            </a>
-        </span>
-        <span>{{ order.date }}</span>
-        <span>${{ order.total }}</span>
-        <span>Service ordered: {{ order.service }}</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1">
+                {% for order in orders %}
+                {% if order.image %}
+                <div class="card mt-3 mb-3 text-center">
+                    <span>
+
+                        <p>Order Number:</p>
+                        <span>{{ order.order_number }}</span>
+
+                        <span>
+                            <img class="card-img-top img-fluid mt-4" src="{{ order.image.url }}"
+                                alt="{{ order.service }}">
+                        </span>
+
+                    </span>
+                    <span class="mt-4">Order Date: {{ order.date }}</span>
+                    <span>Paid: ${{ order.total }}</span>
+                    <span>Service ordered: {{ order.service }}</span>
+                    <div class="my-4 text-center">
+                        <a href="{% url 'request_changes' order.order_number %}"
+                            class="btn btn-outline-secondary btn-sm me-2">Request Changes</a>
+                    </div>
+                </div>
+                {% else %}
+                <h2 class="mt-4">Non-fulfilled Orders</h2>
+                <div class="card mt-3 mb-3 text-center">
+
+                    <span class="my-4">
+                        Order Number: {{ order.order_number }}
+                    </span>
+                    <span>Order Date: {{ order.date }}</span>
+                    <span>Paid: ${{ order.total }}</span>
+                    <span class="mb-4">Service ordered: {{ order.service }}</span>
+                    <span class="mb-4">Order Details: {{ order.description }}</span>
+                </div>
+            </div>
+        </div>
     </div>
     {% endif %}
     {% endfor %}
