@@ -109,3 +109,21 @@ def edit_product(request, product_id):
     }
 
     return render(request, 'products/edit_product2.html', context)
+
+
+@login_required
+def delete_product(request, workout_id):
+    """Allow a superuser to delete a product from the product page"""
+
+    # Check if the current user is a superuser
+    if not request.user.is_superuser:
+        # If not a superuser then redirect to home page
+        messages.error(request, "Sorry, only admin can do that!")
+        return redirect(reverse("home"))
+
+    # Get the product to be deleted
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, "Successfully deleted the product!")
+    # Redirect to the products page
+    return redirect(reverse("products"))
