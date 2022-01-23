@@ -4,15 +4,6 @@ html {
     height: 100%;
 }
 
-/*
-body {
-	background: url('/media/background_image.jpg') no-repeat center center fixed;
-	background-size: cover;
-    height: calc(100vh - 164px);
-    
-}
-*/
-
 body {
 margin: 0;
 }
@@ -60,14 +51,6 @@ margin: 0;
     width: 100%;
 }
 
-/*
-.cutaway{
-    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
-        clip-path: polygon(0 0, 0 100%, 100% 55%, 100% 100%, 100% 0);
-    overflow: hidden;
-}
-*/
-
 .overlay {
 	height: 100%;
 	width: 100%;
@@ -113,7 +96,6 @@ margin: 0;
     width: 100%;
     background-color: #101A26 !important;
 }
-
 
 
 .nav-item{
@@ -188,6 +170,13 @@ margin: 0;
 #description-field{
     width: 90%;
 
+}
+
+.page-spacer{
+    height: 10em;
+	width: 100%;
+	background: white;
+	z-index: -1;
 }
 
 #footer-div {

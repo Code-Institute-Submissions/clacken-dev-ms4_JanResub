@@ -5,26 +5,29 @@
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container page-body">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Thank You</h2>
-                <hr>
-                <p class="text-black">Your order number is {{ order.order_number }}. A confirmation email will be sent to <strong>{{ order.user_profile.user.email }}</strong>.</p>
-                <hr>
-                <p class="text-black">You can now view this order in your profile page.</p>
-                <a class="btn btn-outline-secondary" href="{% url 'profile' %}" role="button">Profile</a>
-            </div>
+<div class="overlay"></div>
+<div class="container page-body">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Thank You</h2>
+            <hr>
+            <p class="text-black">Your order number is {{ order.order_number }}. A confirmation email will be sent to
+                <strong>{{ order.user_profile.user.email }}</strong>.</p>
+            <hr>
+            <p class="text-black">You can now view this order in your profile page.</p>
+            <a class="btn btn-outline-secondary" href="{% url 'profile' %}" role="button">Profile</a>
         </div>
     </div>
+    <div class="page-spacer"></div>
+</div>
+<div class="page-spacer"></div>
 {% endblock %}
