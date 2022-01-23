@@ -17,16 +17,18 @@
         <div class="col-12 col-md-6">
             <hr>
             <h2 class="logo-font mb-4">View Order</h2>
-            <h5 class="text-muted">View information about the selected order.</h5>
-            <hr>
+            <h5 class="text-muted text-center">View information about the selected order.</h5>
+            
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
            
                 <div class="text-right">
+                    
+                    <span>{{ order }}</span>
                     <a class="btn btn-outline-black rounded-0" href="{% url 'orders' %}">Cancel</a>
-                     
+                    
                 </div>
             
         </div>

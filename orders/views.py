@@ -65,3 +65,18 @@ def edit_order(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def view_order(request, order_number):
+    """ A view to add the finished graphics to an order """
+
+    order = get_object_or_404(Order, order_number=order_number)
+    
+    context = {
+        'order': order,
+    }
+
+    template = 'orders/view_order.html'
+
+    return render(request, template, context)
