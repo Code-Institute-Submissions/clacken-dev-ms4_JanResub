@@ -18,7 +18,6 @@
             <hr>
             <h2 class="logo-font mb-4">View Order</h2>
             <h5 class="text-muted text-center">View information about the selected order.</h5>
-
         </div>
     </div>
     <div class="row">
@@ -32,18 +31,17 @@
                     <span>Order Fulfilled: {{ order.is_fulfilled}}</span>
                     <span>
                         <h5 class="mt-4">Completed Graphic:</h5>
-                        <img class="card-img-top img-fluid mt-4" src="{{ order.image.url }}"
-                            alt="{{ order.service }}">
+                        <img class="card-img-top img-fluid mt-4" src="{{ order.image.url }}" alt="{{ order.service }}">
                     </span>
                     <div class="text-center my-5">
                         <span class="mt-2 mb-2"></span>
-                        <a class="btn btn-outline-success" href="{% url 'orders' %}"
-                            role="button">Back</a>
+                        <a class="btn btn-outline-success" href="{% url 'orders' %}" role="button">Back</a>
                         <span class="mt-2 mb-2"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="page-spacer"></div>
 </div>
 {% endblock %}
