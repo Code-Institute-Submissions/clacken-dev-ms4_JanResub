@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Product, Review
-from orders.models import Testimonial
 from profiles.models import UserProfile
 
 from .forms import ReviewForm, ProductForm
@@ -11,13 +10,11 @@ from .forms import ReviewForm, ProductForm
 
 def all_products(request):
     """ A view to show all products """
-    testimonies = Testimonial.objects.all()
 
     products = Product.objects.all()
 
     context = {
         'products': products,
-        'testimonies': testimonies,
     }
 
     return render(request, 'products/products2.html', context)
@@ -68,7 +65,8 @@ def add_review(request, product_id):
 
     # Render the template depending on the context
     return render(
-        request, "products/add_review.html", {"form": form, "product_id": product_id}
+        request, "products/add_review.html",
+        {"form": form, "product_id": product_id}
     )
 
 
@@ -77,24 +75,24 @@ def edit_product(request, product_id):
 
     # Check if user is a superuser
     if not request.user.is_superuser:
-    # If not, redirect to home page
+        # If not, redirect to home page
         messages.error(request, "Sorry, only admin can do that!")
         return redirect(reverse("home"))
 
-    
     # Get the product to be edited
     product = get_object_or_404(Product, pk=product_id)
     
-    #if the form is submitted
+    # if the form is submitted
     if request.method == "POST":
-        #Create an instance of the form and populate with current product details
+        # Create an instance of the form and populate
+        # with current product details
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
             messages.success(request, "successfully updated the product")
             return redirect(reverse("product_detail", args=[product.id]))
         else:
-            message.error(
+            messages.error(
                 request,
                 "Failed to edit the current product. \
                 Please ensure that the form is valid."
@@ -105,7 +103,7 @@ def edit_product(request, product_id):
        
     context = {
         'product': product,
-        'form':form,
+        'form': form,
     }
 
     return render(request, 'products/edit_product2.html', context)
