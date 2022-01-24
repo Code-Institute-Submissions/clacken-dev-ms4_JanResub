@@ -3,11 +3,11 @@
 ## Code Institute Milestone Project 4
 [View the Live Project Here](https://clacken-ms4.herokuapp.com/)
 
-Add mockup image here
+![Graphic Content Site](https://github.com/clacken-dev/ms4/blob/main/documentation/site-mockup.jpg?raw=true)
 
 ---
 
-### Table of Contens
+### Table of Contents
 
 - ## Project
   - Website Description
@@ -55,7 +55,7 @@ Add mockup image here
 - User will submit a design request with a description, pay for the design, and view their submitted order in their profile
 - Users can check back to their profile where their finished graphics will be displayed
 - Admins are able to view and update orders, adding finished graphics to orders which are currently unfulfilled
-- Admins can update and delete products, users, graphics, testimonials
+- Admins can update and delete products, users, graphics, reviews
 
 # UX Design
 ## User Stories
@@ -81,16 +81,23 @@ Add mockup image here
 
 ### Examples of Design Implementation
 ### Products
+- The products page has a clean design, easily understood product information and clear buttons for deciding to read further
+  - Edit and Delete buttons are only shown to a Site Admin
 ![Products Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-product.png?raw=true)
 ### Profile Page
+- The profile page displays the username of the profile as well as the orders which are fulfilled or unfulfilled. Fulfilled orders will display the finished graphic
 ![Profile Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-profile.png?raw=true)
 ### Gallery Page
+- The gallery page has a clean design and shows work completed by the company as an advertising medium
 ![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
 ### Orders Page
+- The orders page is only available to an Admin and shows the orders which are fulfilled or unfulfilled. All new orders will be unfulfilled until an image is uploaded to the order. They can view the full details of a fulfilled order and update the details of an unfulfilled order.
 ![Orders Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-orders.png?raw=true)
 ### Product Detail Page
+- The product detail page gives a longer description of each product as well as the option to continue with the site flow and enter the purchasing options for that product. Review for each product are displayed under the product if they exist. 
 ![Product Details Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-product-details.png?raw=true)
 ### Review Section on Product Detail Page
+- On each product page the users can view reviews which have been left for that specific product and also have the option to a contribute to the site by adding their own review for that product also.
 ![Review Section](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-reviews.png?raw=true)
 
 ### DB Schemas
@@ -218,49 +225,94 @@ Add mockup image here
  - There are small styling issues to be ironed out, mostly around spacing and footer position.
  - Messages not displaying until navigating to admin panel
  - The functions for requesting changes to the order do not correctly update the is_fulfilled value and this negatively affects the Orders display page. Updating an order with an image should move it from UnFulfilled to Fulfilled and simultaneously update the is_fulfilled Boolean value in the Order model. Requesting a change should update the is_fulfilled to False again thereby placing it again in the Unfulfilled section of the Orders page.
+
 # Deployment
-Repository set up
+
+## Repository set up
+- This app was developed in Gitpod and pushed to a GitHub repository which was connected to Heroku with automatic deployments. The steps for cloning and hosting are below.
 
 Ensure your requirements.txt is up to date.
 
-pip3 freeze --local > requirements.txt - Ensure you have a Procfile in the repository.
-web: gunicorn bookaband.wsgi:application
-Create a new app on Heroku
+    pip3 freeze --local > requirements.txt - Ensure there is a Procfile in your repository with the following: 
+    web: gunicorn bookaband.wsgi:application
 
-Navigate to Heroku.
-Once logged in/signed up for an account, select 'New' and 'Create New App'.
-Create an app name and select a region.
-Link up GitHub Repository
+In your Heroku account create a new app and select a region. Link this app to the relevant GitHub Repository by searching the repo and pressing 'connect'.
 
-Select the 'Connect to GitHub' tab.
-Type in repository name and select 'search'.
-Once the repository is found, press 'connect'.
-Heroku Set up
+### Postgres Database Setup
 
-Navigate to the resources tab at the top of the page.
-Search for 'Heroku Postgres' and select. Confirm which package you would like to use and 'submit order form'.
-Environment Variables can be set in the app settings.
-The following variables will need to be set:
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-DATABASE_URL
-EMAIL_HOST_PASS
-EMAIL_HOST_USER
-SECRET_KEY
-USE_AWS
+Navigate to resources at the top of page, search for 'Heroku Postgres' and confirm which package you would like to use select.
+
+In the App Settings reveal the config vars and add the following:
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- DATABASE_URL
+- EMAIL_HOST_PASS
+- EMAIL_HOST_USER
+- SECRET_KEY
+- USE_AWS
+
 Under the 'Deploy' tab, enable automatic deploys.
+The Postgres URL can be entered in Django Settings.py and migrations can now be made to the hosted database on Heroku. Fixtures can be exported into a Json file using the command 
 
-Deploying locally
-To run the project on your local IDE Download Repository
+    python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json
 
-Download the repository and navigate to the 'code' dropdown.
-Add the HTTPS url to your clipboard.
-Open your environemt and use git clone followed by the repository url.
-Install the requirements file with pip3 install -r requirements.txt
-Set variables in an env file or in your environment variables settings.
-Add 'developement' to the list of environement variables to ensure debug is set to True.
-Ensure USE_AWS is set to False
-EMAIL_* variables are not required as emails will be posted to the terminal while in development mode.
+This can then be uploaded to the connected Postrgres database using:
+
+    python3 manage.py loaddata db.json
+
+## Amazon AWS S3 Bucket
+- The S3 bucket is used to host static files and media
+
+After signing into the AWS dashboard it will be necessary to create an S3 Bucket in the S3 menu. Navigate to "Block Public Access" and allow access to the bucket. 
+
+On the properties tab enable static hosting and save changes.
+
+On the permissions tab ed the CORS section and enter the following permissions:
+
+    
+    [{
+      "AllowedHeaders": ["
+      Authorization"
+      ],
+      "AllowedMethods": [
+        "Get"
+     ],
+      "AllowedOrigins": [
+      "*"
+     ],
+      "ExposeHeaders": [],
+     }]
+
+Navigate to the bucket policy section and after clicking 'Edit' then select the Policy Generator from S3 Bucket Policy. Enter the ARN as found on the bucket and generate the policy.
+
+Save all changes to the Bucket and then enter the IAM section of the AWS dashboard.
+
+Create a new User Group and attach the policy created to the user group. Create a User and add this user to the User Group with Access Type of Programmatic. Download the .csv file and ensure to store the the details in a safe location.
+
+## Connect Heroku to AWS S3
+
+Install boto3 using pip3 and add this to the requirements.txt file.
+
+Add the access credentials from the .csv file to Heroku Config Vars under the app settings. Create the Media and Static files in the Bucket in the S3 dashboard and enable COLLECTSTATIC so that Heroku will collect static files and store new ones in the S3 Bucket.
+
+Now pushes to GitHub will automatically deploy to Heroku which in turn will update using the S3 Bucket to store static files.
+
+## Forking Repository
+
+Log into GitHub and at the top right of the page while looking at the repository the Fork button is visible. Clicking this gives the option to fork it for personal use.
+
+## Making a Clone of the Repository to run locally
+
+Click the Code dropdown button located above the repository and copy CLI code to enter in the local development environment:
+    
+    gh repo clone clacken-dev/ms4
+
+Install the necessary requirements from the requirements.txt file using the following command:
+
+    pip3 install -r requirements.txt
+
+The app can now be run from the local environment
 
 
 # Credits
