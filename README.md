@@ -87,11 +87,11 @@ Add mockup image here
 ### Gallery Page
 ![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
 ### Orders Page
-![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+![Orders Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-orders.png?raw=true)
 ### Product Detail Page
-![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+![Product Details Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-product-details.png?raw=true)
 ### Review Section on Product Detail Page
-![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+![Review Section](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-reviews.png?raw=true)
 
 ### DB Schemas
 - The database is a relational model which features several Foreign Keys between tables. These allow for Products to be attached to Orders, Users to be the owners of Orders, Users to write Reviews about Products and more.
@@ -187,6 +187,9 @@ Add mockup image here
 ## Error Free CSS 
 ![Link to CSS Results](https://github.com/clacken-dev/ms4/blob/main/documentation/css-v2.png?raw=true)
 - Python Linter was used to identify and rectify pep8 compliance issues in environment wherever possible
+## Chrome Devtools Lighthouse
+- Lighthouse was used to assess the design and efficacy of the site and its performance. The results were good overall
+![Lighthouse Results](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-lighthouse.png?raw=true)
 
 # Testing User Stories
 
@@ -263,9 +266,14 @@ EMAIL_* variables are not required as emails will be posted to the terminal whil
 # Credits
 ### Code
 - Site design is based off Code Institute's Boutique Ado and borrows features and functionality from it. Most elements are adapted as needed and all are attributed in the code. 
+- Some design, layout and logic was inspired from other MS4 projects and those looked at are mentioned below:
+  - [Joyce English School by AideenM12](https://github.com/AideenM12/Joyce-English-School-MS4)
+  - [Book A Band by OlieHickie](https://github.com/OliHickie/book_a_band)
+  - [Milestone Project 4 by Puksrevolution](https://github.com/Puksrevolution/milestone-project-4)
+  - [Coached by Caoimhe by Bozy15](https://github.com/Puksrevolution/milestone-project-4)
 
 ### Images
-- Images used from Unsplash and Pexels
+- Images used were downloaded from Unsplash and Pexels and are royalty free under Creative Commons
 
 ## Acknowledgments
 - This project was inspired by Code Institute's Boutique Ado project.
@@ -273,3 +281,4 @@ EMAIL_* variables are not required as emails will be posted to the terminal whil
  - Many thanks go to my mentor for his continued support throughout the project.
 
 - Thanks  to the Code Institute tutor team for their guidance and help.
+- The Slack Community
