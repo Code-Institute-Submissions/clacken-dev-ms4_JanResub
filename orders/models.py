@@ -38,17 +38,5 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
 
-class Testimonial(models.Model):
-    """
-    A model for testimonials to be shown and drawn from
-    """
-    customer_name = models.CharField(max_length=32, null=True)
-    testimony = models.TextField(null=False, blank=False)
-    product_purchased = models.ForeignKey(Product, on_delete=models.SET_NULL,
-                                          null=True, blank=True,
-                                          related_name='product')
- 
-    def __str__(self):
-        return str(self.testimony)
 
 
