@@ -80,8 +80,17 @@ Add mockup image here
 - Straightforward checkout, one click pay
 
 ### Examples of Design Implementation
+### Products
 ![Products Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-product.png?raw=true)
+### Profile Page
 ![Profile Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-profile.png?raw=true)
+### Gallery Page
+![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+### Orders Page
+![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+### Product Detail Page
+![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+### Review Section on Product Detail Page
 ![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
 
 ### DB Schemas
