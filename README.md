@@ -79,8 +79,16 @@ Add mockup image here
 - Abstract or artistic images to give design impressions
 - Straightforward checkout, one click pay
 
+### Examples of Design Implementation
+![Products Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-product.png?raw=true)
+![Profile Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-profile.png?raw=true)
+![Gallery Page](https://github.com/clacken-dev/ms4/blob/main/documentation/v2-gallery.png?raw=true)
+
 ### DB Schemas
-![Image of Schema](https://github.com/clacken-dev/ms4/blob/main/documentation/db_schema.png?raw=true)
+- The database is a relational model which features several Foreign Keys between tables. These allow for Products to be attached to Orders, Users to be the owners of Orders, Users to write Reviews about Products and more.
+- The database for the live site is a Postgresql database added to the Heroku hosting 
+- The database tables are as follows: 
+![Image of Schema](https://github.com/clacken-dev/ms4/blob/main/documentation/db_schema_v2.png?raw=true)
 
 ## Architecture
 
@@ -102,20 +110,29 @@ Add mockup image here
   - service_type
   - description
   - price
+  - short_description
+  - lead_time
+  - image_url
+  - image
 - Order
   - user (ForeignKey)
   - service (ForeignKey)
+  - order_number
+  - date
   - total
   - description
-  - date
-  - order_number
   - image
+  - is_fulfilled
+  - changes_requested
 - Image
   - image
   - image_url
-- Testimony
+- Review
   - user (ForeignKey)
-  - testimony
+  - product (ForeignKey)
+  - review_title
+  - review
+  - date
 
 ## Wireframes 
 ![Wireframe1](https://github.com/clacken-dev/ms4/blob/main/documentation/wireframe1.png?raw=true)
@@ -146,16 +163,28 @@ Add mockup image here
 - AWS S3
 
 # Features
- - The site features a responsive minimalist design with intuitive feedback
+ - The site features a responsive design with intuitive feedback. Layout is straightforward and simple and allows customers to easily navigate, purchase products, review orders and view their purchased items.
+ - Secured pages with registration and login necessary for key functions
+ - Admin dashboard for control of products, users, orders and other elements created on the site via user or admin interaction
+ - Integrated billing functionality provided by Stripe component
+ - Email sending with user registration and order completion
 # Testing
 
 ## Validation
+- The site was tested for compliance with HTML best practice, CSS best practice and to ensure all Python was PEP8 compliant insofar as possible. All python code was gone through and updated and all possible errors were removed. Errors to note which remain are in four lines of DJango settings.py file which were left as originally generated in order to maintain Django settings integrity as well as errors stating that certain models do not contain a .objects property. This error was researched and is not inherintly an error but moreover a miscommunication between the pylint and the codebase. A workaround is possible but not stricly necessary considering it technically conforms to standards.
 - Site was validated with W3C Markup Validator and with W3C CSS Validator to ensure site complied with best practice and layout of both languages
-[Link to Markup Results]()
-[Link to CSS Results]()
+## Error Free HTML
+![Link to Markup Results](https://github.com/clacken-dev/ms4/blob/main/documentation/html-v2.png?raw=true)
+## Error Free CSS 
+![Link to CSS Results](https://github.com/clacken-dev/ms4/blob/main/documentation/css-v2.png?raw=true)
 - Python Linter was used to identify and rectify pep8 compliance issues in environment wherever possible
 
-## Testing User Stories
+# Testing User Stories
+
+## Further Testing
+- Extensive further testing was carried out on all features and functions of the site and can be viewed in the TESTING.md file linked below
+- [TESTING.md](https://github.com/clacken-dev/ms4/blob/main/TESTING.md)
+
 | Scenario  	| Expectation  	|  Results 	|
 |---	|---	|---	|
 |   Home Page links verification	| Check all links work, are clearly labelled and bring to correct page  	|   PASS	|
@@ -174,8 +203,9 @@ Add mockup image here
 |   Overall Experience	| The navigation experience is smooth overall. Pages are clearly laid out with lots of breathing space, sections are labelled and buttons and links all work. There is always the navbar to navigate back to a different location and pages are linked in an intuitive manner to aid site flow. The products view flows naturally into creating an order and paying. The order confirmation flows nicely to the profile page where users get accustomed to how the site flow will be on their next visit when checking for their finished image. Interaction is nice and responsive and site behaves as expected.  	|  PASS 	|
 
 # Bugs
- - Some whitespace on mobile view of home page
+ - There are small styling issues to be ironed out, mostly around spacing and footer position.
  - Messages not displaying until navigating to admin panel
+ - The functions for requesting changes to the order do not correctly update the is_fulfilled value and this negatively affects the Orders display page. Updating an order with an image should move it from UnFulfilled to Fulfilled and simultaneously update the is_fulfilled Boolean value in the Order model. Requesting a change should update the is_fulfilled to False again thereby placing it again in the Unfulfilled section of the Orders page.
 # Deployment
 Repository set up
 
