@@ -63,10 +63,17 @@ Authentication on this page also works as desired. A guest will be directed to t
 
 - The account features all work as desired and expected for registering and logging in and out. Registration displays the form with the details required and gives a notification that the signup was successful. Upon validating an email the signup works to let the user log in and use the site features. Logging out displays a confirmation message to the user and redirects to the home page when logged out. All features which require registration are adequatly blocked from users who are not registered. 
 
-- Features exclusive to Admin
+### Route Handlers, URLs, Views
 
-- Manual Testing of Route Handlers
+- All code was tested to ensure that it behaved as expected and that views worked as desired. Route handlers were tested to ensure they led to the correct functions. Views were tested to ensure the output was as desired and that the templates and context were passed through correctly. 
 
-- Known Bugs and Issues
+- PEP8 Compliance
+    - All code was also gone through to ensure the highest possible level of PEP8 compliance and any issues flagged were noted in the README.md as being left as non-serious. 
 
-- Further Testing
+## Future Features
+
+- Future features to implement would be giving users the option to add their work to the graphics featured in the Gallery and display a review to the specific graphics.
+- Adding a download link or displaying a finished graphic in a new tab.
+- Add a feature for an admin to add new products on the products page for simplicity. 
+- Send an email alert to a user when their order status changes so they know when to check their profile. 
+
